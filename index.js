@@ -68,7 +68,7 @@ class EmojiPicker extends Component {
 
   renderCategory(category) {
     return (
-      <EmojiCategory 
+      <EmojiCategory
         {...this.props}
         key={category}
         category={category}
@@ -98,7 +98,7 @@ class EmojiCategory extends Component {
     let emojis = emojisByCategory[this.props.category]
     let size = this.props.emojiSize || defaultEmojiSize
     let style = {
-      fontSize: size-4,
+      fontSize: size-10,
       color: 'black',
       height: size+4,
       width: size+4,
@@ -110,14 +110,14 @@ class EmojiCategory extends Component {
      <View style={style.categoryOuter}>
         <Text style={[styles.headerText, this.props.headerStyle]}>{this.props.category}</Text>
         <View style={styles.categoryInner}>
-          {emojis.map(e => 
-            <Text style={style} 
-              key={e} 
+          {emojis.map(e =>
+            <Text style={style}
+              key={e}
               onPress={() => this.props.onEmojiSelected(e)}>
               {e}
             </Text>
           )}
-        </View>    
+        </View>
       </View>
     )
   }
@@ -126,7 +126,7 @@ class EmojiCategory extends Component {
 
 const ClearButon = props => {
   return (
-    <TouchableOpacity 
+    <TouchableOpacity
       onPress={() => props.onEmojiSelected(null)}>
       <Text style={[styles.clearButton, props.clearButtonStyle]}>
         {props.clearButtonText || 'Clear'}
@@ -181,7 +181,7 @@ let styles = StyleSheet.create({
   },
   categoryInner: {
     flex: 1,
-    flexWrap: 'wrap', 
+    flexWrap: 'wrap',
     flexDirection: 'column',
   },
   headerText: {
